@@ -1,22 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-function DemoComponent (props){
+import {ProductLine} from "./components/ProductLine";
 
-    const {name, title} = props;
-  console.log({props});
-    return <div >{title} {name}</div>;
-}
-//kleine aanpassing
 function App() {
-  return (
-    <div className="App">
-        <h1 >Menu</h1>
-      <DemoComponent name="cola"/>
-      <DemoComponent name="water"/>
-      <DemoComponent name="bier"/>
-      <DemoComponent name="wijn"/>
-    </div>
-  );
+    return (<div className="App">
+        <div>
+            <h1>Menu</h1>
+            <ProductLine productName="cola" price={1}/>
+            <ProductLine productName="water" price={1}/>
+            <ProductLine productName="bier" price={1}/>
+            <ProductLine productName="wijn" price={2}/>
+        </div>
+    </div>);
 }
 
 export default App;
