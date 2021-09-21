@@ -4,13 +4,8 @@ import {PRODUCTS_DATA} from "./data/data";
 
 function App() {
     return (<div className="App">
-        <div>
-            <h1>Menu</h1>
-            <ProductLine product={PRODUCTS_DATA[0]}/>
-            <ProductLine product={PRODUCTS_DATA[1]}/>
-            <ProductLine product={PRODUCTS_DATA[2]}/>
-            <ProductLine product={PRODUCTS_DATA[3]}/>
-        </div>
+        <h1>Menu</h1>
+        {PRODUCTS_DATA.map(p => <ProductLine product={p} key={p.name}/>)}
     </div>);
 }
 
