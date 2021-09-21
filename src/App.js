@@ -6,6 +6,7 @@ function DemoComponent (props){
   console.log({props});
     return <div >{title} {name}</div>;
 }
+//kleine aanpassing
 function App() {
   return (
     <div className="App">
