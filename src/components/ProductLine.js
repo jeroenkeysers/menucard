@@ -1,7 +1,7 @@
 export function ProductLine(props) {
-    const {productName, price} = props;
+    const {product} = props;
     return <div className="productLine">
-        <div>{productName} </div>
-        <div>{price}</div>
+        <div>{product.name} </div>
+        <div>{product.price}&euro;</div>
     </div>;
 }
