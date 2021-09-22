@@ -68,3 +68,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Data
+This application works with the following data:
+* **PRODUCTS_DATA**: array of PRODUCT objects
+* **PRODUCT**:
+ * **name**: string
+ * **price**: number
+ * **size**: number (optional)
+ * **note**: string (optional)
+ 
+* **CATEGORIES_DATA**: array of CATEGORY objects
+* **CATEGORY**:
+ * **name**: string
+
+example: see [data.js](src/data/data.js) 

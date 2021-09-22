@@ -6,3 +6,8 @@ export const PRODUCTS_DATA = [
     {name: "wijn", price: 2, note:"rood, wit of rosé"},
     {name: "cava", price: 3},
 ];
+export const CATEGORIES_DATA = [
+    {name: "fris"},
+    {name: "alcohol"},
+    {name: "eten"}
+];
