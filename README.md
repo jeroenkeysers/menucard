@@ -82,5 +82,11 @@ This application works with the following data:
 * **CATEGORIES_DATA**: array of CATEGORY objects
 * **CATEGORY**:
  * **name**: string
+ * **PRODUCTS**: array of PRODUCT objects
+ * **PRODUCT**:
+  * **name**: string
+  * **price**: number
+  * **size**: number (optional)
+  * **note**: string (optional)
 
 example: see [data.js](src/data/data.js) 
