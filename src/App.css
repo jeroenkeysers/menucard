@@ -5,15 +5,28 @@ body {
 .productLine {
   display: flex;
   flex-direction: row;
+
 }
 .productLine div {
   flex: 1;
 }
 .productSize {
   font-size: 0.6em;
+
 }
 .note {
   color: #a21212;
   font-size: smaller;
   padding: 0 1.5em 0.5em 0;
+
+}
+
+
+.variant {
+  background-color: black;
+  color: white;
+}
+
+.HeadTitle {
+  color: darkred;
 }

@@ -1,14 +1,15 @@
 import './App.css';
-import {ProductLine} from "./components/ProductLine";
-import {CATEGORIES_DATA, PRODUCTS_DATA} from "./data/data";
+import {CATEGORIES_DATA} from "./data/data";
 import {ProductCategory} from "./components/ProductCategory";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from "react-bootstrap";
+import Row from "react-bootstrap/Row";
 
 function App() {
-    return (<div className="App">
-        <h1>Menu</h1>
-        {CATEGORIES_DATA.map(c => <ProductCategory category={c} key={c.name}/>)}
-        {PRODUCTS_DATA.map(p => <ProductLine product={p} key={p.name}/>)}
-    </div>);
+    return (<Container className="App">
+        <h1 className="HeadTitle">Menu</h1>
+        <Row> {CATEGORIES_DATA.map(c => <ProductCategory category={c} key={c.name}/>)}</Row>
+    </Container>);
 }
 
 export default App;
