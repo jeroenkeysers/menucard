@@ -1,32 +1,20 @@
-body {
-  font-size: calc(10px + 2vmin);
-  padding: 0 2em;
-}
-.productLine {
-  display: flex;
-  flex-direction: row;
 
+
+.menu-h1 {
+  color: #a21212;
+  font-size: x-large;
 }
-.productLine div {
-  flex: 1;
-}
+
 .productSize {
-  font-size: 0.6em;
-
+  font-size: small;
 }
+
 .note {
   color: #a21212;
-  font-size: smaller;
+  font-size: small;
   padding: 0 1.5em 0.5em 0;
-
 }
 
-
-.variant {
-  background-color: black;
-  color: white;
-}
-
-.HeadTitle {
-  color: darkred;
+.category-card-header {
+  background-color: #75a6df;
 }

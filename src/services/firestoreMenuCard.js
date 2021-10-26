@@ -1,25 +1,29 @@
+import "firebase/firestore";
+import {firestoreDatabase} from "./firestore";
 
+const COLLECTION_PRODUCTS = "Products";
 
-
-
-function inflateProductDataWITHLOGS(productDataFromDb){
-    console.log({productDataFromDb});
-    const categories = productDataFromDb.map(p => p.category);
-    console.log({categories});
-    const uniqueCategories = [...new Set(categories)];
-    console.log({uniqueCategories});
-    const inflatedData = uniqueCategories.map(c => ({
+/**
+ *
+ * @param productDocs
+ * @returns CATEGORIES_DATA: array of CATEGORY objects (see README.md)
+ */
+function inflateDataFromDb(productDocs) {
+    const flatProductData = productDocs.map(doc => doc.data());
+    const uniqueCategoryNames = [...(new Set(flatProductData.map(p => p.category)))];
+    return uniqueCategoryNames.map(c => ({
         name: c,
-        products: productDataFromDb.filter(p => p.category === c)
+        products: flatProductData.filter(p => p.category === c)
     }));
-    console.log({inflatedData})
-    return inflatedData;
 }
 
-function inflateProductData(productDataFromDb) {
-    const uniqueCategories = [...new Set(productDataFromDb.map(p => p.category))];
-    return uniqueCategories.map(c => ({
-        name: c,
-        products: productDataFromDb.filter(p => p.category === c)
-    }));
+export async function getMenuCardFromDb() {
+    if (!firestoreDatabase) return [];
+
+    const result = await firestoreDatabase.collection(COLLECTION_PRODUCTS)
+        //.orderBy("sequence")
+        .get();
+    if (result.empty) return [];
+
+    return inflateDataFromDb(result.docs);
 }

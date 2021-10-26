@@ -1,5 +1,6 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
+import firebase from "firebase/app";
+import "firebase/firestore";
+
 //this is executed when this file is imported
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -7,8 +8,10 @@ const firebaseConfig = {
     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID
 };
 console.log({firebaseConfig});
+
 // if already initialized, use that one
 if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+
 export const firestoreDatabase = firebaseConfig.projectId && firebase.firestore();
 if (firestoreDatabase)
     console.log(`connection to database is ok`);

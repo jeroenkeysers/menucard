@@ -1,25 +1,27 @@
-export function ProductSize(props) {
+import {Col, Row} from "react-bootstrap";
+
+function ProductSize(props) {
     const {product} = props;
-    const s = product.size ? ` - ${product.size}cl` : "";
-    return <div>
-        <div className="productSize">{s}</div>
-    </div>
+    if (!product.size) return null;
+    return <span className="productSize"> - {product.size}cl</span>;
 }
 
-export function ProductNote(props) {
+function ProductNote(props) {
     const {product} = props;
-    const s = product.note ? `${product.note}` : "";
-    return <div>
-        <div className="note">{s}</div>
-    </div>
+    return <div className="note">{product.note}</div>;
 }
 
 export function ProductLine(props) {
     const {product} = props;
-
-    return <div className="productLine">
-        <div>{product.name}<ProductSize product={product}/><ProductNote product={product}/></div>
-        <div>{product.price}&euro;</div>
-
-    </div>;
+    return <>
+        <Row>
+            <Col>{product.name}<ProductSize product={product}/></Col>
+            <Col xs={3} md={4} className="text-end">
+                {product.price}&euro;
+            </Col>
+        </Row>
+        <Row>
+            <Col><ProductNote product={product}/></Col>
+        </Row>
+    </>;
 }
