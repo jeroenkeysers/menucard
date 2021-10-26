@@ -1,9 +1,18 @@
-import React, {createContext, useContext, useMemo, useState} from 'react';
+import React, {createContext, useContext, useEffect, useMemo, useState} from 'react';
+import {getMenuCardFromDb} from "../services/firestoreMenuCard";
 
 const MenuDataContext = createContext();
 
 export function MenuDataProvider(props) {
     const [menuData, setMenuData] = useState([]);
+    useEffect(() => {
+        async function load() {
+            const menuDataFromDb = await getMenuCardFromDb();
+            setMenuData(menuDataFromDb);
+        }
+
+        load();
+    }, []);
     const api = useMemo(() => ({
         menuData, setMenuData
     }), [menuData, setMenuData]);
